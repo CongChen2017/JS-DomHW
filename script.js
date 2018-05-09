@@ -35,25 +35,75 @@ function tabulate(data, columns) {
 // render the tables
 tabulate(dataSet, ['datetime', 'city', 'state', 'country', 'shape', 'comments']);
 
-function mySearch(inputID, colNum) {
+function mySearch() {
   // Declare variables 
-  var input, filter, table, tr, td, i;
-  input = document.getElementById(inputID);
-  filter = input.value.toUpperCase();
+  var input1, input2, input3, input4, input5;
+  var filter1, filter2, filter3, filter4, filter5, table, tr, td, i;
+  var found1, found2, found3, found4, found5;
+  input1 = document.getElementById("search1");
+  filter1 = input1.value.toUpperCase();
+  input2 = document.getElementById("search2");
+  filter2 = input2.value.toUpperCase();
+  input3 = document.getElementById("search3");
+  filter3 = input3.value.toUpperCase();
+  input4 = document.getElementById("search4");
+  filter4 = input4.value.toUpperCase();
+  input5 = document.getElementById("search5");
+  filter5 = input5.value.toUpperCase();
   table = document.getElementById("myTable");
   tr = table.getElementsByTagName("tr");
 
+
   // Loop through all table rows, and hide those who don't match the search query
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[colNum];
+  for (i = 1; i < tr.length; i++) {
+  	td = tr[i].getElementsByTagName("td");
+  	found1 = true;
+  	found2 = true;
+    found3 = true;
+    found4 = true;
+    found5 = true;
+
     if (td) {
-      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
+	    
+    	if (filter1) {
+    		if (td[0].innerHTML.toUpperCase().indexOf(filter1) > -1) {
+    			found1 = true;} else {
+    				found1 = false;
+    			}
+    	}
+    	if (filter2) {
+    		if (td[1].innerHTML.toUpperCase().indexOf(filter2) > -1) {
+    			found2 = true;} else {
+    				found2 = false;
+    			}
+    	}
+      if (filter3) {
+        if (td[2].innerHTML.toUpperCase().indexOf(filter3) > -1) {
+          found3 = true;} else {
+            found3 = false;
+          }
       }
-    } 
+      if (filter4) {
+        if (td[3].innerHTML.toUpperCase().indexOf(filter4) > -1) {
+          found4 = true;} else {
+            found4 = false;
+          }
+      }
+      if (filter5) {
+        if (td[4].innerHTML.toUpperCase().indexOf(filter5) > -1) {
+          found5 = true;} else {
+            found5 = false;
+          }
+      }
+    	if (found1 && found2 && found3 && found4 && found5) {
+    		tr[i].style.display = "";
+
+    	}	else {
+    		tr[i].style.display = "none";
+    	}
+     
   }
+}
 }
 
 

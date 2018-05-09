@@ -6,8 +6,16 @@ td, th {
       padding: 1px 4px;
     }
 
+table {
+    border-collapse: collapse;
+}
 
-tr:nth-child(even) {background-color: #DCE2DC;}
+td {
+    border: 1px solid black;
+}
+
+
+/*tr:nth-child(even) {background-color: #DCE2DC;}*/
 
 th {
     background-color: #4CAF50;
